@@ -1,0 +1,13 @@
+#fakeTextArea {
+  background-color: red;
+  width: 60vw;
+  height: 40vw;
+  border: 1px solid black;
+}
+
+#sourceText {
+  resize: none;
+  /* background-color: red; */
+  width: 60vw;
+  height: 40vw;
+}

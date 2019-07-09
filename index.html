@@ -5,60 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Word Finder</title>
+    <script type="module" src="./main.js"></script>
+    <link rel="stylesheet" href="./main.css" />
   </head>
   <body>
     <form id="mainForm">
-      <input type="text" id="searchText" onkeyup="keywordmaker()" />
-      <input type="button" value="Next" id="nextBtn" onclick="nextAction()" />
+      <input type="text" id="searchText" />
+      <input type="button" value="Next" id="nextBtn" />
       <input type="button" value="Prev" id="prevBtn" />
     </form>
-    <textarea
-      name="textArea"
-      rows="4"
-      cols="50"
-      id="sourceText"
-      form="mainForm"
-      placeholder="Enter Some Text Here"
-      contenteditable="true"
-    ></textarea>
-    <script>
-      let inputfield = document.querySelector("#searchText");
-      let textfield = document.querySelector("#sourceText");
-      let keyword = "";
-
-      function keywordmaker() {
-        keyword = inputfield.value;
-        return;
-      }
-
-      function nextAction() {
-        keywordSearcher(keyword);
-      }
-
-      function keywordSearcher(keyword) {
-        //let textfield = textfield;
-        let text = textfield.value;
-        let keyindex = text.indexOf(keyword);
-        let subText = text.substr(keyindex, keyword.length);
-        textfield.value = text.replace(subText, `<p style="color:red;">Hi</p>`);
-        let cutter = keyindex + keyword.length;
-        let firstPart = "";
-        let secondPart = "";
-        for (let i = 0; i < keyindex; i++) {
-          firstPart += text[i];
-        }
-        for (let i = cutter; i < text.length; i++) {
-          secondPart += text[i];
-        }
-        console.log(keyindex, subText);
-        console.log(firstPart);
-        console.log(secondPart);
-        /*let p = document.createElement("p");
-        p.style.color = "red";
-        p.textContent = subText;
-        textfield.value = `${firstPart}` + ` ${p.innerHTML}` + ` ${secondPart}`;*/
-        return;
-      }
-    </script>
+    <div id="try">
+      <textarea
+        name="textArea"
+        rows="4"
+        cols="50"
+        id="sourceText"
+        form="mainForm"
+        placeholder="Enter Some Text Here"
+        contenteditable="true"
+      ></textarea>
+      <div id="fakeTextArea" aria-placeholder="Enter Some Text Here"></div>
+    </div>
   </body>
 </html>
